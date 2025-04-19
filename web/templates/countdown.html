@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Countdown</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    #countdown {
+      position: relative;
+      display: inline-block;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.25rem;
+      background-color: #111;
+      padding: 1rem 2rem;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0f0;
+      color: #0f0;
+      text-align: center;
+      animation: glitch 1.1s infinite;
+    }
+
+    #countdown-placeholder {
+      visibility: hidden;
+      height: 0;
+      display: block;
+    }
+
+    /*
+    #countdown::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 0, 0.05),
+        rgba(0, 255, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      animation: flickerScanline 3s infinite ease-in-out;
+    }
+    */
+    
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+      }
+      20% {
+        text-shadow: -2px -1px red, 2px 1px blue;
+      }
+      40% {
+        text-shadow: 2px 2px red, -2px -2px blue;
+      }
+      60% {
+        text-shadow: -2px 2px red, 2px -2px blue;
+      }
+      80% {
+        text-shadow: 1px 0 red, -1px 0 blue;
+      }
+      100% {
+        text-shadow: 0 0 red, 0 0 blue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Time Remaining</h1>
+  <div id="countdown">
+    <span id="countdown-text">Loading...</span>
+    <span id="countdown-placeholder">999y:999d:99h:59m:59s:999ms</span>
+  </div>
+
+  <script>
+    window.targetDate = "{{ target_date }}";
+  </script>
+  <script src="{{ url_for('static', filename='behaviour.js') }}" defer></script>
+</body>
+</html>
