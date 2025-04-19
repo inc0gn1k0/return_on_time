@@ -1,8 +1,10 @@
 # 🕰️ Waste No Time 💩
 
-**Waste No Time** is a playful, elegant web app that helps you estimate your lifespan based on ancestral longevity and your date of birth.
+**Waste No Time** is a playful, elegant web app, scaffolded with flask, and served by python, that helps you estimate your lifespan based on ancestral longevity and your date of birth.
 
 Using Bootstrap styling, AOS animations, and an intuitive UI, users can quickly input gender, birth date, and ancestor lifespans using interactive sliders — all wrapped in a quirky, lighthearted package.
+
+
 
 ---
 
